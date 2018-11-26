@@ -45,7 +45,7 @@ flutter:
   assets:
    - assets/images/
    - locale/i18n_en.json
-   - locale/i18n_hi.json
+   - locale/i18n_zh.json
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
