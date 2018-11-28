@@ -3,11 +3,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
+import 'lang/LanguageHelper.dart';
 
 class NBApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return NBState();
   }
 }
@@ -17,7 +17,7 @@ class NBState extends State<NBApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       localizationsDelegates: [
-        const NBTranslationDelegate(),
+        LanguageDelegate(["en","zh"]),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
       ],
@@ -27,7 +27,24 @@ class NBState extends State<NBApp> {
         const Locale("zh", "CN"),
       ],
       title: "Titleeeeeeeeeeeeeeeeeee",
-      home: Text(Translation.instance(context).value('enter_code_label')),
+      home: HomeScreen(),
+    );
+  }
+}
+class HomeScreen extends StatefulWidget {
+  @override
+  HomeState createState() {
+    return HomeState();
+  }
+}
+
+class HomeState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Text(
+        LanguageHelper.value(context, 'enter_code_label'),
+      ),
     );
   }
 }
@@ -41,8 +58,8 @@ class Translation {
     _localizedValues = null;
   }
 
-  static Translation instance(BuildContext context) {
-    return Localizations.of<Translation>(context, Translation);
+  static String value(BuildContext context, String key) {
+    return Localizations.of<Translation>(context, Translation)._value(key);
   }
 
   static Future<Translation> load(Locale locale) async {
@@ -53,7 +70,7 @@ class Translation {
     return translations;
   }
 
-  String value(String key) {
+  String _value(String key) {
     return _localizedValues[key] ?? '** $key not found';
   }
 
