@@ -6,5 +6,5 @@ import 'package:flutter_uikit/nbApp.dart';
 void main() {
   // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   Injector.configure(Flavor.MOCK);
-  runApp(NBApp());
+  runApp(MyApp());
 }

@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
   final _scaffoldState = GlobalKey<ScaffoldState>();
   Size deviceSize;
   BuildContext _context;
+
   //menuStack
   Widget menuStack(BuildContext context, Menu menu) => InkWell(
         onTap: () => _showModalBottomSheet(context, menu),
@@ -39,8 +40,8 @@ class HomePage extends StatelessWidget {
   Widget menuColor() => new Container(
         decoration: BoxDecoration(boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black.withOpacity(0.8),
-            blurRadius: 5.0,
+            color: Colors.blueGrey.withOpacity(0.8),
+            blurRadius: 20.0,
           ),
         ]),
       );
@@ -65,7 +66,7 @@ class HomePage extends StatelessWidget {
 
   //appbar
   Widget appBar() => SliverAppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.green,
         pinned: true,
         elevation: 10.0,
         forceElevated: true,
@@ -74,13 +75,14 @@ class HomePage extends StatelessWidget {
           centerTitle: false,
           background: Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: UIData.kitGradients)),
+                gradient:
+                    LinearGradient(colors: [Colors.amber, Colors.black12])),
           ),
           title: Row(
             children: <Widget>[
               FlutterLogo(
-                colors: Colors.yellow,
-                textColor: Colors.white,
+                colors: Colors.green,
+                textColor: Colors.yellow,
               ),
               SizedBox(
                 width: 10.0,
@@ -132,9 +134,10 @@ class HomePage extends StatelessWidget {
 
   Widget header() => Ink(
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: UIData.kitGradients2)),
+            gradient:
+                LinearGradient(colors: [Colors.black26, Colors.blueGrey])),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
