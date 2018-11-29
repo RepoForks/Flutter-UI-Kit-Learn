@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
-import 'dart:async';
 import 'lang/LanguageHelper.dart';
 import 'screen/HomeScreen.dart';
 
